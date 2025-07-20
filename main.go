@@ -13,10 +13,13 @@ func main() {
 	var note string = collectData("Enter note title")
 	var noteContent string = collectData("Enter note content")
 	var newNote, err = n.New(note, noteContent)
+
 	if err != nil {
 		fmt.Print(err)
 		return
 	}
+	//function is being called on that instance of the class in memory
+	newNote.ShowNote()
 
 	fileops.WriteToFile(newNote)
 	fmt.Println("Note saved to", fileops.StorageFile)
